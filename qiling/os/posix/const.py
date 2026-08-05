@@ -22,6 +22,104 @@ NSIG = 32
 
 SOCK_TYPE_MASK = 0x0f
 
+# Linux RISC-V uses asm-generic socket UAPI constants.
+class linux_riscv_socket_types(Enum):
+    SOCK_STREAM    = 0x00001
+    SOCK_DGRAM     = 0x00002
+    SOCK_RAW       = 0x00003
+    SOCK_RDM       = 0x00004
+    SOCK_SEQPACKET = 0x00005
+    SOCK_DCCP      = 0x00006
+    SOCK_PACKET    = 0x0000a
+    SOCK_NONBLOCK  = 0x00800
+    SOCK_CLOEXEC   = 0x80000
+
+
+class linux_riscv_socket_domain(Enum):
+    AF_UNSPEC     = 0x00
+    AF_UNIX       = 0x01
+    AF_INET       = 0x02
+    AF_AX25       = 0x03
+    AF_IPX        = 0x04
+    AF_APPLETALK  = 0x05
+    AF_NETROM     = 0x06
+    AF_BRIDGE     = 0x07
+    AF_ATMPVC     = 0x08
+    AF_X25        = 0x09
+    AF_INET6      = 0x0a
+    AF_ROSE       = 0x0b
+    AF_DECnet     = 0x0c
+    AF_NETBEUI    = 0x0d
+    AF_SECURITY   = 0x0e
+    AF_KEY        = 0x0f
+    AF_NETLINK    = 0x10
+    AF_PACKET     = 0x11
+    AF_ASH        = 0x12
+    AF_ECONET     = 0x13
+    AF_ATMSVC     = 0x14
+    AF_RDS        = 0x15
+    AF_SNA        = 0x16
+    AF_IRDA       = 0x17
+    AF_PPPOX      = 0x18
+    AF_WANPIPE    = 0x19
+    AF_LLC        = 0x1a
+    AF_IB         = 0x1b
+    AF_MPLS       = 0x1c
+    AF_CAN        = 0x1d
+    AF_TIPC       = 0x1e
+    AF_BLUETOOTH  = 0x1f
+    AF_IUCV       = 0x20
+    AF_RXRPC      = 0x21
+    AF_ISDN       = 0x22
+    AF_PHONE      = 0x23
+    AF_IEEE802154 = 0x24
+    AF_CAIF       = 0x25
+    AF_ALG        = 0x26
+    AF_NFC        = 0x27
+    AF_VSOCK      = 0x28
+    AF_KCM        = 0x29
+    AF_QIPCRTR    = 0x2a
+    AF_SMC        = 0x2b
+    AF_MAX        = 0x2c
+
+
+# https://github.com/torvalds/linux/blob/master/include/uapi/linux/in.h
+class linux_riscv_socket_level(Enum):
+    IPPROTO_IP   = 0x0000
+    SOL_SOCKET   = 0x0001
+    IPPROTO_TCP  = 0x0006
+    IPPROTO_UDP  = 0x0011
+    IPPROTO_IPV6 = 0x0029
+    IPPROTO_RAW  = 0x00ff
+
+
+# https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/socket.h
+class linux_riscv_socket_options(Enum):
+    SO_DEBUG        = 0x0001
+    SO_REUSEADDR    = 0x0002
+    SO_TYPE         = 0x0003
+    SO_ERROR        = 0x0004
+    SO_DONTROUTE    = 0x0005
+    SO_BROADCAST    = 0x0006
+    SO_SNDBUF       = 0x0007
+    SO_RCVBUF       = 0x0008
+    SO_SNDBUFFORCE  = 0x0020
+    SO_RCVBUFFORCE  = 0x0021
+    SO_KEEPALIVE    = 0x0009
+    SO_OOBINLINE    = 0x000a
+    SO_NO_CHECK     = 0x000b
+    SO_PRIORITY     = 0x000c
+    SO_LINGER       = 0x000d
+    SO_BSDCOMPAT    = 0x000e
+    SO_REUSEPORT    = 0x000f
+    SO_PASSCRED     = 0x0010
+    SO_PEERCRED     = 0x0011
+    SO_RCVLOWAT     = 0x0012
+    SO_SNDLOWAT     = 0x0013
+    SO_RCVTIMEO_OLD = 0x0014
+    SO_SNDTIMEO_OLD = 0x0015
+
+
 class linux_x86_socket_types(Enum):
     SOCK_STREAM    = 0x00001
     SOCK_DGRAM     = 0x00002
